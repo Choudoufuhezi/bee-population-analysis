@@ -5,4 +5,4 @@ RUN conda install -y \
     numpy=1.26.4 \
     pandas=2.2.2 \
     pytest=8.2.0 \
-    us=3.1.1 
+    us=3.1.1
