@@ -1,0 +1,17 @@
+services:
+  clean_analysis: 
+    image: bee_population_analysis:latest
+    volumes:
+      - ./:/home/jovyan
+    stdin_open: true
+    tty: true
+    command: ['make clean']
+
+  run_analysis: 
+    image: bee_population_analysis:latest
+    volumes:
+      - ./:/home/jovyan
+    stdin_open: true
+    tty: true
+    command: ['make']
+
