@@ -1,3 +1,4 @@
 .ipynb_checkpoints/
 .bash_history
 src/__pycache__
+tests/__pycache__
