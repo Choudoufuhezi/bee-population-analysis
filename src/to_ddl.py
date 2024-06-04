@@ -7,17 +7,29 @@ def init_tables(output_sql_file):
     initialize the tables
     """
     with open(output_sql_file, 'w') as outfile:
+        outfile.write(f"SET FOREIGN_KEY_CHECKS=0; \n")
+        outfile.write(f"DROP TABLE IF EXISTS Detect; \n")
+        outfile.write(f"DROP TABLE IF EXISTS MonitorStation; \n")
+        outfile.write(f"DROP TABLE IF EXISTS Bee; \n")
+        outfile.write(f"DROP TABLE IF EXISTS GasConditions; \n")
+        outfile.write(f"DROP TABLE IF EXISTS Influence; \n")
+        outfile.write(f"DROP TABLE IF EXISTS Monitor; \n")
+        outfile.write(f"DROP TABLE IF EXISTS Kills; \n")
+        outfile.write(f"DROP TABLE IF EXISTS RiskFactors; \n")
+        outfile.write(f"DROP TABLE IF EXISTS Parasite; \n")
+        outfile.write(f"DROP TABLE IF EXISTS Pesticide; \n")
+        outfile.write(f"SET FOREIGN_KEY_CHECKS=1; \n")
+
         outfile.write(f"CREATE TABLE MonitorStation (CentroidLongitude DECIMAL, CentroidLatitude DECIMAL, Year INTEGER, AverageTemperature DECIMAL, PRIMARY KEY (CentroidLongitude, CentroidLatitude, Year));\n")
-        outfile.write(f"CREATE TABLE Bee ( State VARCHAR(255), Year INTEGER, MaxColony INTEGER, LostColony INTEGER, PercentLost DECIMAL, Colony INTEGER, AddColony INTEGER, PercentRenovated DECIMAL, PercentLostByDisease DECIMAL, PRIMARY KEY (State, Year));\n")
-        outfile.write(f"CREATE TABLE Detect ( CentroidLongitude DECIMAL, CentroidLatitude DECIMAL, StationYear INTEGER, BeeState VARCHAR(255), BeeYear INTEGER, PRIMARY KEY (CentroidLongitude, CentroidLatitude, StationYear, BeeState, BeeYear), FOREIGN KEY (BeeState, BeeYear) REFERENCES Bee(State, Year), FOREIGN KEY (CentroidLongitude, CentroidLatitude, StationYear) REFERENCES MonitorStation(CentroidLongitude, CentroidLatitude, Year));\n")
-        outfile.write(f"CREATE ASSERTION totalBee CHECK (NOT EXITS ((SELECT State, Year FROM Bee) EXCEPT (SELECT BeeState, BeeYear FROM Detect)));\n")
-        outfile.write(f"CREATE TABLE GasConditions ( Name VARCHAR(255), State VARCHAR(255), Year INTEGER, MeanValue DECIMAL, AverageAQI DECIMAL, PRIMARY KEY (Name, State, Year));\n")
-        outfile.write(f"CREATE TABLE Influence ( GasPollutantsYearAffected INTEGER, GasPollutantsStateAffected VARCHAR(255), BeeState VARCHAR(255), BeeYear INTEGER, GasPollutantsName VARCHAR(255), PRIMARY KEY (GasPollutantsYearAffected, GasPollutantsStateAffected, BeeState, BeeYear, GasPollutantsName), FOREIGN KEY (BeeState, BeeYear) REFERENCES Bee(State, Year), FOREIGN KEY (GasPollutantsYearAffected, GasPollutantsStateAffected, GasPollutantsName) REFERENCES GasConditions(Year, State, Name));\n")
-        outfile.write(f"CREATE TABLE RiskFactors ( State VARCHAR(255), Year INTEGER, Name VARCHAR(255), PRIMARY KEY (State, Year)); \n")        
-        outfile.write(f"CREATE TABLE Monitor ( CentroidLongitude DECIMAL, CentroidLatitude DECIMAL, StationYear INTEGER, RiskFactorsReportedYear INTEGER, RiskFactorsReportedState VARCHAR(255), PRIMARY KEY (CentroidLongitude, CentroidLatitude, StationYear, RiskFactorsReportedYear, RiskFactorsReportedState), FOREIGN KEY (RiskFactorsReportedYear, RiskFactorsReportedState) REFERENCES RiskFactors(Year, State), FOREIGN KEY (CentroidLongitude, CentroidLatitude, StationYear) REFERENCES MonitorStation(CentroidLongitude, CentroidLatitude, Year));\n")
-        outfile.write(f"CREATE TABLE Kill ( BeeState VARCHAR(255), BeeYear INTEGER, RiskFactorsReportedYear INTEGER, RiskFactorsReportedState VARCHAR(255), PRIMARY KEY (BeeState, BeeYear, RiskFactorsReportedYear, RiskFactorsReportedState), FOREIGN KEY (BeeState, BeeYear) REFERENCES Bee(State, Year), FOREIGN KEY (RiskFactorsReportedYear, RiskFactorsReportedState) REFERENCES RiskFactors(Year, State));\n")
-        outfile.write(f"CREATE TABLE Parasite ( Year INTEGER, State VARCHAR(255), PercentAffected DECIMAL, PRIMARY KEY (Year, State), FOREIGN KEY (Year, State) REFERENCES RiskFactors(Year, State));\n")
-        outfile.write(f"CREATE TABLE Pesticide ( Year INTEGER, State VARCHAR(255), LowEstimate DECIMAL, HighEstimate DECIMAL, PRIMARY KEY (Year, State), FOREIGN KEY (Year, State) REFERENCES RiskFactors(Year, State));\n")
+        outfile.write(f"CREATE TABLE Bee (State VARCHAR(255), Year INTEGER, Colony INTEGER, MaxColony INTEGER, LostColony INTEGER, PercentLost DECIMAL, AddColony INTEGER, PercentRenovated DECIMAL, PercentLostByDisease DECIMAL, PRIMARY KEY (State, Year));\n")
+        outfile.write(f"CREATE TABLE Detect (CentroidLongitude DECIMAL, CentroidLatitude DECIMAL, StationYear INTEGER, BeeState VARCHAR(255), BeeYear INTEGER, PRIMARY KEY (CentroidLongitude, CentroidLatitude, StationYear, BeeState, BeeYear), FOREIGN KEY (BeeState, BeeYear) REFERENCES Bee(State, Year), FOREIGN KEY (CentroidLongitude, CentroidLatitude, StationYear) REFERENCES MonitorStation(CentroidLongitude, CentroidLatitude, Year));\n")
+        outfile.write(f"CREATE TABLE GasConditions (Name VARCHAR(255), State VARCHAR(255), Year INTEGER, MeanValue DECIMAL, AverageAQI DECIMAL, PRIMARY KEY (Name, State, Year));\n")
+        outfile.write(f"CREATE TABLE Influence (GasPollutantsYearAffected INTEGER, GasPollutantsStateAffected VARCHAR(255), BeeState VARCHAR(255), BeeYear INTEGER, GasPollutantsName VARCHAR(255), PRIMARY KEY (GasPollutantsYearAffected, GasPollutantsStateAffected, BeeState, BeeYear, GasPollutantsName), FOREIGN KEY (BeeState, BeeYear) REFERENCES Bee(State, Year), FOREIGN KEY (GasPollutantsName, GasPollutantsStateAffected, GasPollutantsYearAffected) REFERENCES GasConditions(Name, State, Year));\n")
+        outfile.write(f"CREATE TABLE RiskFactors (State VARCHAR(255), Year INTEGER, Name VARCHAR(255), PRIMARY KEY (State, Year)); \n")        
+        outfile.write(f"CREATE TABLE Monitor (CentroidLongitude DECIMAL, CentroidLatitude DECIMAL, StationYear INTEGER, RiskFactorsReportedYear INTEGER, RiskFactorsReportedState VARCHAR(255),  PRIMARY KEY (CentroidLongitude, CentroidLatitude, StationYear, RiskFactorsReportedYear, RiskFactorsReportedState), FOREIGN KEY (RiskFactorsReportedState, RiskFactorsReportedYear) REFERENCES RiskFactors(State, Year), FOREIGN KEY (CentroidLongitude, CentroidLatitude, StationYear) REFERENCES MonitorStation(CentroidLongitude, CentroidLatitude, Year));\n")
+        outfile.write(f"CREATE TABLE Kills (BeeState VARCHAR(255), BeeYear INTEGER, RiskFactorsReportedYear INTEGER, RiskFactorsReportedState VARCHAR(255), PRIMARY KEY (BeeState, BeeYear, RiskFactorsReportedYear, RiskFactorsReportedState), FOREIGN KEY (BeeState, BeeYear) REFERENCES Bee(State, Year), FOREIGN KEY (RiskFactorsReportedState, RiskFactorsReportedYear) REFERENCES RiskFactors(State, Year)); \n")
+        outfile.write(f"CREATE TABLE Parasite (Year INTEGER, State VARCHAR(255), PercentAffected DECIMAL, PRIMARY KEY (Year, State), FOREIGN KEY (State, Year) REFERENCES RiskFactors(State, Year));\n")
+        outfile.write(f"CREATE TABLE Pesticide (Year INTEGER, State VARCHAR(255), LowEstimate DECIMAL, HighEstimate DECIMAL, PRIMARY KEY (Year, State), FOREIGN KEY (State, Year) REFERENCES RiskFactors(State, Year));\n")
         return True
 
 def create_sql_MonitorStation(input_csv_file, output_sql_file):
@@ -276,7 +288,7 @@ def create_sql_Kill(bee_csv_file, risk_factors_csv_file, output_sql_file):
                     # Check for matches with Bee data
                     for bee_state, bee_year in bee_data:
                         if (bee_year == risk_year) and (bee_state == risk_state):
-                            statement = f"INSERT INTO Kill (BeeState, BeeYear, RiskFactorsReportedYear, RiskFactorsReportedState) VALUES ('{bee_state}', {bee_year}, {risk_year}, '{risk_state}');\n"
+                            statement = f"INSERT INTO Kills (BeeState, BeeYear, RiskFactorsReportedYear, RiskFactorsReportedState) VALUES ('{bee_state}', {bee_year}, {risk_year}, '{risk_state}');\n"
                             outfile.write(statement)
             return True
     except:

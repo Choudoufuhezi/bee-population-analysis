@@ -184,9 +184,9 @@ def clean_data3(data3, helper_dataset):
 
     data3["percent_renovated"] = helper_dataset["percent_renovated"]
     data3["percent_lost"] = helper_dataset["percent_lost"]
-
-    manipulate = pd.DataFrame(data3["state"].value_counts())
-    data3_list = manipulate.index 
+    
+    # manipulate = pd.DataFrame(data3["state"].value_counts())
+    # data3_list = manipulate.index 
 
     data3.reset_index(drop=True, inplace=True)
 

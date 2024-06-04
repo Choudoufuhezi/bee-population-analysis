@@ -17,14 +17,16 @@ from src.clean_data import *
 @click.option('--data3_path_processed',  type=str, default='data/processed/save_the_bees.csv')
 @click.option('--data4_path_processed',  type=str, default='data/processed/pollution_2000_2021.csv')
 @click.option('--data_help_2_path',  type=str, default='data/processed/helper.csv')
+@click.option('--data_help_path',  type=str, default='data/processed/helper__.csv')
 
-def main(data1_path_origin, data2_path_origin, data3_path_origin, data4_path_origin, data1_path_processed, data2_path_processed, data3_path_processed, data4_path_processed, data_help_2_path):
+def main(data1_path_origin, data2_path_origin, data3_path_origin, data4_path_origin, data1_path_processed, data2_path_processed, data3_path_processed, data4_path_processed, data_help_2_path, data_help_path):
 
     data1, data2, data3, data4 = read_data(data1_path_origin, data2_path_origin, data3_path_origin, data4_path_origin)
 
     data1 = clean_data1(data1)
     data2 = clean_data2(data2)
     helper = helper_dataset(data3)
+    data3 = clean_data3(data3, helper)
     data3 = clean_data3(data3, helper)
     data_help_2 = helper_dataset2(data2, data3)
     data4 = clean_data4(data4)
@@ -34,6 +36,8 @@ def main(data1_path_origin, data2_path_origin, data3_path_origin, data4_path_ori
     data3.to_csv(data3_path_processed)
     data4.to_csv(data4_path_processed)
     data_help_2.to_csv(data_help_2_path)
+    helper.to_csv(data_help_path)
+
 
 if __name__ == '__main__':
     main()
