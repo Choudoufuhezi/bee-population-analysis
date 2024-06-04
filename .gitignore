@@ -1,4 +1,11 @@
-.ipynb_checkpoints/
 .bash_history
+.cache/
+.config
+.ipynb_checkpoints/
+.pytest_cache
+data/.ipynb_checkpoints
+images/.ipynb_checkpoints
 src/__pycache__
+src/.ipynb_checkpoints
+scripts/.ipynb_checkpoints
 tests/__pycache__

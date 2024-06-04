@@ -1,17 +1,36 @@
 services:
-  clean_analysis: 
-    image: bee_population_analysis:latest
+  clean_analysis:
+    image: bee_population_analysis:0.0.2
     volumes:
       - ./:/home/jovyan
     stdin_open: true
     tty: true
-    command: ['make clean']
+    depends_on:
+      - init_db
+    command: make clean
 
-  run_analysis: 
-    image: bee_population_analysis:latest
+  run_analysis:
+    image: bee_population_analysis:0.0.2
     volumes:
       - ./:/home/jovyan
     stdin_open: true
     tty: true
-    command: ['make']
+    depends_on:
+      - init_db
+    command: make all
+    
+  init_db:
+    image: mysql:latest
+    volumes:
+      - ./:/home/jovyan
+    ports: 
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: bee_population_analysis_db
+      MYSQL_USER: system
+      MYSQL_PASSWORD: 123456
+
+
+    
 
