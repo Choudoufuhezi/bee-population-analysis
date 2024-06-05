@@ -1,6 +1,6 @@
 services:
   clean_analysis:
-    image: bee_population_analysis:0.0.2
+    image: bee_population_analysis:0.0.3
     volumes:
       - ./:/home/jovyan
     stdin_open: true
@@ -10,7 +10,7 @@ services:
     command: make clean
 
   run_analysis:
-    image: bee_population_analysis:0.0.2
+    image: bee_population_analysis:0.0.3
     volumes:
       - ./:/home/jovyan
     stdin_open: true
