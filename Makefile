@@ -13,35 +13,17 @@ images/average_temperature_linearity.png images/co_conc_linearity.png images/no2
 images/correlation_matrix.png models/linear_model.pkl images/shap_train.png images/shap_overall.png data/processed/vif.csv:
 		python scripts/analysis_script.py
 
+reports/analysis_report.html:
+		quarto render reports/analysis_report.qmd --to html
+
 clean:
-		rm -rf data/processed/average_monthly_temperature_by_state_1950-2022.csv
-		rm -rf data/processed/epest_county_estimates.csv
-		rm -rf data/processed/save_the_bees.csv
-		rm -rf data/processed/pollution_2000_2021.csv 
-		rm -rf data/processed/helper.csv 
 		rm -rf scripts/output.sql
-		rm -rf images/year_percentage_loss
-		rm -rf data/processed/helper.csv data/processed/helper__.csv
-		rm -rf images/year_temperature.png  
-		rm -rf images/year_pesticide.png
-		rm -rf images/year_aqi.png
-		rm -rf images/year_percentage_lost.png
-		rm -rf images/plot1.png
-		rm -rf images/plot2.png
-		rm -rf images/plot3.png
-		rm -rf images/plot4.png
-		rm -rf images/plot5.png
-		rm -rf images/average_temperature_linearity.png 
-		rm -rf images/co_conc_linearity.png 
-		rm -rf images/no2_conc_linearity.png 
-		rm -rf images/so2_conc_linearity.png 
-		rm -rf images/percent_lost_by_disease_linearity.png 
-		rm -rf images/pesticide_estimate_linearity.png
-		rm -rf images/correlation_matrix.png 
 		rm -rf models/linear_model.pkl 
-		rm -rf images/shap_train.png 
-		rm -rf images/shap_overall.png
 		rm -rf data/processed/vif.csv
+		rm -rf images/*
+		rm -rf data/processed/*
+		rm -rf reports/analysis_report.html
+		rm -rf reports/analysis_report_files
 
 all: data/processed/average_monthly_temperature_by_state_1950-2022.csv \
 		data/processed/epest_county_estimates.csv \
@@ -69,4 +51,5 @@ all: data/processed/average_monthly_temperature_by_state_1950-2022.csv \
 		models/linear_model.pkl \
 		images/shap_train.png \
 		images/shap_overall.png \
-		data/processed/vif.csv
+		data/processed/vif.csv \
+		reports/analysis_report.html
