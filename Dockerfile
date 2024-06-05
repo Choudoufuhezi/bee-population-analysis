@@ -17,3 +17,4 @@ RUN conda install -y \
     xgboost=2.0.3 \
     statsmodels=0.14.1 \
     shap=0.45.0 \
+    quarto=1.4.550
