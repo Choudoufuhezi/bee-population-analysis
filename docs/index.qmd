@@ -52,17 +52,17 @@ The cleaning phase of the project has been completed, resulting in a total of fi
 In our data analysis, after selecting the key explanatory variables to be temperature, concentrations of gas pollutants (CO, NO2, and SO2), percentage loss due to disease, and pesticide usage estimates, we first sought to explore the relationships between several key explanatory variables and our response variable, the percentage loss of bee colonies. This preliminary step was essential to assess whether the fundamental assumptions of linear regression—linearity, independence, homoscedasticity, and normality—were satisfied, thereby ensuring the statistical rigor of our findings.
 
 ::: {#fig-linear_relationships}
-![relationship between average temperature and percentage loss](../images/average_temperature_linearity.png){#fig-average_temperature width=80% height=80%}
+![relationship between average temperature and percentage loss](./../images/average_temperature_linearity.png){#fig-average_temperature width=80% height=80%}
 
-![relationship between CO and percentage loss](../images/co_conc_linearity.png){#fig-co_conc width=80% height=80%}
+![relationship between CO and percentage loss](./../images/co_conc_linearity.png){#fig-co_conc width=80% height=80%}
 
-![relationship between NO2 and percentage loss](../images/no2_conc_linearity.png){#fig-no2_conc width=80% height=80%}
+![relationship between NO2 and percentage loss](./../images/no2_conc_linearity.png){#fig-no2_conc width=80% height=80%}
 
-![relationship between percentage loss by disease and percentage loss](../images/percent_lost_by_disease_linearity.png){#fig-percent_lost width=80% height=80%}
+![relationship between percentage loss by disease and percentage loss](./../images/percent_lost_by_disease_linearity.png){#fig-percent_lost width=80% height=80%}
 
-![relationship between pesiticde estimate by disease and percentage loss](../images/pesticide_estimate_linearity.png){#fig-pesticide_estimate_linearity width=80% height=80%}
+![relationship between pesiticde estimate by disease and percentage loss](./../images/pesticide_estimate_linearity.png){#fig-pesticide_estimate_linearity width=80% height=80%}
 
-![relationship between SO2 and percentage loss](../images/so2_conc_linearity.png){#fig-so2_conc width=80% height=80%}
+![relationship between SO2 and percentage loss](./../images/so2_conc_linearity.png){#fig-so2_conc width=80% height=80%}
 
 linear relationships
 :::
@@ -78,7 +78,7 @@ vif[["Variable", "VIF"]]
 
 To address concerns of multicollinearity, which can inflate the variance of linear regression coefficients and compromise the interpretability of the model, we employed the Variance Inflation Factor (VIF). Our findings are illustrated in @tbl-vif, with all VIF scores remaining under the commonly accepted threshold of 10, indicated that multicollinearity was unlikely to be a significant issue in our dataset. This reassurance allowed us to proceed without the need to eliminate or merge variables to mitigate multicollinearity effects.
 
-![Correlation between each pair of explanatory variables indicated by color intensity.](../images/correlation_matrix.png){#fig-correlation_matrix}
+![Correlation between each pair of explanatory variables indicated by color intensity.](./../images/correlation_matrix.png){#fig-correlation_matrix}
 
 Additionally, we scrutinized the correlations among our explanatory variables to determine the necessity of including interaction terms in our regression model. As shown in @fig-correlation_matrix, the resulting correlation matrix revealed the absence of strong correlations between variables, as all the correlations are much smaller than 0.5, thereby negating the need for interaction terms. This was a crucial step in maintaining our model's simplicity and ensuring its interpretability, adhering to the principle of Occam's razor in statistical modeling.
 
@@ -96,20 +96,20 @@ In summary, our exploration through linear and non-linear models underscores the
 
 ## Results from data visualizations
 
-![Average percentage loss of bees in the USA from 2015 to 2019.](../images/year_lost.png){#fig-year_lost}
+![Average percentage loss of bees in the USA from 2015 to 2019.](./../images/year_lost.png){#fig-year_lost}
 
 Based on @fig-year_lost, we can observe that the average percentage loss of bee colonies differs over the 5-year period. The average percentage loss of bee colonies slightly increased from 2015 to 2016, then decreased from 15.5% to about 13.1% from 2016 to 2017. However, this percentage loss continued to increase for 2018 and 2019. The highest percentage loss occurred in 2016 (15.5%).
 
-![Average temperature in the USA from 2015 to 2019.](../images/year_temperature.png){#fig-year_temp}
+![Average temperature in the USA from 2015 to 2019.](./../images/year_temperature.png){#fig-year_temp}
 
 Regarding average temperature @fig-year_temp, it increased from 54.8°C to 56.1°C from 2015 to 2016, reaching the highest temperature among the 5 years, then decreased over the following three years. Since 2016 had both the highest average temperature and the highest average percentage loss for the USA, it may imply a potential association between temperature and bee health.
 
-![Average pesticide usage in the USA from 2015 to 2019.](../images/year_pesticide.png){#fig-year_pest}
+![Average pesticide usage in the USA from 2015 to 2019.](./../images/year_pesticide.png){#fig-year_pest}
 
 In terms of pesticide usage in the USA @fig-year_pest, the amount increased from 5300 kg in 2015 to its peak usage, approximately 5890 kg in 2016. Subsequently, the usage decreased over time until 2018, reaching about 5310 kg. The usage then increased to approximately 5750 kg in 2019. Since 2016 had both the highest pesticide usage and the highest average percentage loss of bees for the USA, it suggests a potential association between pesticide usage and bee health.
 
 
-![ Average AQI of gas conditions in the USA from 2015 to 2019.](../images/year_aqi.png){#fig-year_aqi}
+![ Average AQI of gas conditions in the USA from 2015 to 2019.](./../images/year_aqi.png){#fig-year_aqi}
 
 In terms of Average AQI @fig-year_aqi, all four gases do not seem to change much between years in the USA. Since a higher AQI value indicates greater levels of air pollution and greater health concerns (Bishoi et al., 2009), O3 has the highest value of the Average AQI, posing the highest risk of contributing to bee health among these four gases, followed by NO2, CO, and SO2.
 
@@ -128,9 +128,9 @@ The linear regression results show that the model explains approximately 11% of 
 
 Upon applying XGBoost to our data, we aimed to uncover non-linear patterns that linear regression may have missed. The model's predictive performance, as measured by R-squared, was approximately 0.0667, indicating only a slight improvement in capturing the variability of bee colony losses compared to the linear model. This outcome suggested that while non-linear patterns might exist, they are either too intricate or too weakly associated with the data we have, or that other unaccounted factors play a more significant role than those we included in our model.
 
-![Distribution of SHAP value for each predictors in the XGBoost model.](../images/shap_train.png){#fig-shap_train}
+![Distribution of SHAP value for each predictors in the XGBoost model.](./../images/shap_train.png){#fig-shap_train}
 
-![Feature Importance Plot for the XGBoost model.](../images/shap_overall.png){#fig-shap_overall}
+![Feature Importance Plot for the XGBoost model.](./../images/shap_overall.png){#fig-shap_overall}
 
 The SHAP (SHapley Additive exPlanations) analysis provided further insights into the influence of individual features on the XGBoost model's predictions, and the results are presented in @fig-shap_train. The significant impact of features such as State and Year, as indicated by their SHAP values in @fig-shap_overall, hinted at the complex interplay of temporal and geographical factors with bee colony health. However, given the overall low performance of the XGBoost model with an adjusted R-squared value of 0.0667, the XGBoost model has limited predictive power and explains only about 6.67% of the variance in the percent loss of bee colonies, and the findings must be interpreted with caution. They suggest that while certain variables show a stronger influence, the model's capacity to accurately predict bee colony losses remains limited, underlining the complexity of the issue and the possibility of missing crucial explanatory variables or facing data quality issues.
 
