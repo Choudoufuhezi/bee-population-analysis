@@ -13,8 +13,8 @@ images/average_temperature_linearity.png images/co_conc_linearity.png images/no2
 images/correlation_matrix.png models/linear_model.pkl images/shap_train.png images/shap_overall.png data/processed/vif.csv:
 		python scripts/analysis_script.py
 
-reports/analysis_report.html:
-		quarto render reports/analysis_report.qmd --to html
+docs/index.html:
+		quarto render 
 
 clean:
 		rm -rf scripts/output.sql
@@ -22,7 +22,7 @@ clean:
 		rm -rf data/processed/vif.csv
 		rm -rf images/*
 		rm -rf data/processed/*
-		rm -rf reports/analysis_report.html
+		rm -rf docs/*
 		rm -rf reports/analysis_report_files
 
 all: data/processed/average_monthly_temperature_by_state_1950-2022.csv \
@@ -52,4 +52,4 @@ all: data/processed/average_monthly_temperature_by_state_1950-2022.csv \
 		images/shap_train.png \
 		images/shap_overall.png \
 		data/processed/vif.csv \
-		reports/analysis_report.html
+		docs/index.html
