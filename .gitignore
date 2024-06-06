@@ -9,3 +9,5 @@ src/__pycache__
 src/.ipynb_checkpoints
 scripts/.ipynb_checkpoints
 tests/__pycache__
+/.quarto/
+/_site/
