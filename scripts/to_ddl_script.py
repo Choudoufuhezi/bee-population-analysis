@@ -25,6 +25,9 @@ def main(sql_path, temperature_data_path, bee_data_path, pollution_data_path, he
     create_sql_Parasite(bee_data_path, sql_path)
     create_sql_Pesticide(epest_data_path, sql_path)
 
+    connection = connect_to_db(3306, 'cpsc368-project-group1-init_db-1')
+    load_sql_to_db(connection, sql_path)
+
 
 if __name__ == '__main__':
     main()
