@@ -420,8 +420,7 @@ def plot_1_render(state, years_parasite, years_lost, percentage_parasite, percen
                     alt.Tooltip("percentage", title = "Percentage Lost", format='.2f')]
         ).properties(
             title = (f'Percentage Lost by Disease and Parasite in {state}'),
-            width = 500,
-            height = 300
+            width = 350
         )
     
     return graph
@@ -446,8 +445,7 @@ def plot_2_render(state, colony_years, colony_values, lost_colonies, added_colon
                     alt.Tooltip("number", title = "Number of Colonies")]
         ).properties(
             title = (f'Colony Tracker in {state}'),
-            width = 500,
-            height = 300
+            width = 350
         )
     
     return graph
@@ -472,8 +470,7 @@ def plot_3_render(state, years, low_estimate, high_estimate):
                     alt.Tooltip("number", title = "Pesticide Usage (kg)")]
         ).properties(
             title = (f'Pesticide Usage in {state} Over the Years'),
-            width = 500,
-            height = 300
+            width = 350
         )
     
     return graph
@@ -496,8 +493,7 @@ def plot_4_render(state, aqi_data):
                     alt.Tooltip("value", title = "Average AQI", format='.2f')]
         ).properties(
             title = (f'AQI for Each Gas in {state} Over the Years'),
-            width = 500,
-            height = 300
+            width = 350
         )
     
     return graph
@@ -517,8 +513,7 @@ def plot_5_render(state, years, temperatures):
                     alt.Tooltip("temperatures", title = "Average Temperature (°C)", format='.2f')]
         ).properties(
             title = (f'Temperature Change in {state} Over the Years'),
-            width = 500,
-            height = 300
+            width = 350
         )
 
     return graph
