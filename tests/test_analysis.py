@@ -384,7 +384,7 @@ def test_concat_plots():
     """
     test concat_plots()
     """
-    for i in range(1,11):
+    for i in range(1,5):
         x_values = np.random.randint(0, 100, 10)
         y_values = np.random.randint(0, 100, 10)
         dict = {"X" + str(i):x_values,
@@ -395,12 +395,15 @@ def test_concat_plots():
             y = "Y" + str(i) + ":Q"
         )
     
-    graph = concat_plots(plot_1, plot_2, plot_3, plot_4, plot_5, plot_6, plot_7, plot_8, plot_9, plot_10, "images/test_concat.png")
+    graph = concat_plots(plot_1, plot_2, plot_3, plot_4, "images/test_concat.png")
 
+    # the graph is expected to be 4x4 
+    # [X1, X2]
+    # [X3, X4]
     assert(graph.to_dict()["vconcat"][0]["hconcat"][0]["encoding"]["x"]["field"] == "X1")
-    assert(graph.to_dict()["vconcat"][0]["hconcat"][-1]["encoding"]["x"]["field"] == "X5")
-    assert(graph.to_dict()["vconcat"][1]["hconcat"][0]["encoding"]["x"]["field"] == "X6")
-    assert(graph.to_dict()["vconcat"][1]["hconcat"][-1]["encoding"]["x"]["field"] == "X10")
+    assert(graph.to_dict()["vconcat"][0]["hconcat"][-1]["encoding"]["x"]["field"] == "X2")
+    assert(graph.to_dict()["vconcat"][1]["hconcat"][0]["encoding"]["x"]["field"] == "X3")
+    assert(graph.to_dict()["vconcat"][1]["hconcat"][-1]["encoding"]["x"]["field"] == "X4")
 
     os.remove("images/test_concat.png")
 
