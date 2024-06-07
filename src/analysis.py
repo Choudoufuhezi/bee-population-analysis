@@ -524,9 +524,10 @@ def plot_5_render(state, years, temperatures):
     return graph
 
 
-def concat_plots(plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, plot10, path):
-    v1_1 = alt.hconcat(plot1, plot2, plot3, plot4, plot5)
-    v1_2 = alt.hconcat(plot6, plot7, plot8, plot9, plot10)
+
+def concat_plots(plot1, plot2, plot3, plot4, path):
+    v1_1 = alt.hconcat(plot1, plot2)
+    v1_2 = alt.hconcat(plot3, plot4)
     plot = alt.vconcat(v1_1, v1_2)
 
     plot.save(path)
