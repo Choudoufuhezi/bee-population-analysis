@@ -1,5 +1,6 @@
 import sys
 import os
+import mysql.connector
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from src.to_ddl import * 
 
@@ -134,3 +135,28 @@ def test_Pesticide():
     #input path that do not exist
     assert(create_sql_Pesticide("data/processed/epest_county_estimate.csv", "scripts/output.sql"), False)
 
+
+def test_connect_db():
+    """
+    test connect_to_db()
+    """
+    connection_output = connect_to_db(3307, 'localhost')
+    connection_test = mysql.connector.connect(
+        host = 'localhost',
+        user = 'system',
+        password = '123456',
+        database = 'bee_population_analysis_db',
+        port = 3307
+    )
+
+    assert(connection_output, connection_test)
+
+
+def test_load_sql_db():
+    """
+    test load load_sql_to_db()
+    """
+    init_tables("scripts/output.sql")
+    connection = connect_to_db(3307, 'localhost')
+    assert(load_sql_to_db(connection, "scripts/output.sql"), True)
+    assert(load_sql_to_db(connection, "scripts/output1.sql"), False)

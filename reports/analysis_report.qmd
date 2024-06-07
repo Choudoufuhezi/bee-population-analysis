@@ -29,11 +29,13 @@ We will first create line graphs to visualize the overall trends in temperature 
 
 ## Explanation of Datasets
 
-In crafting our analytical framework, we have chosen four datasets to reveal the complex interplay between various factors influencing honey bee populations and agricultural ecosystems. Firstly, we draw upon the Pesticide Usage Data (https://www.kaggle.com/datasets/konradb/pesticide-usage-in-the-united-states/data), acquired from the National Water-Quality Assessment Project, offering insights into pesticide application trends across different states. 
 
-Complementing this, the Honey Bee Health Data (https://www.kaggle.com/datasets/m000sey/save-the-honey-bees/data), spanning from 2015 to 2022 and originally collected by the USDA, furnishes critical information on honey bee populations, facilitating a nuanced understanding of their health dynamics. Furthermore, NOAA's Climate Data (https://www.kaggle.com/datasets/justinrwong/average-monthly-temperature-by-us-state), providing temperature insights by U.S. state, adds a crucial dimension to our analysis by elucidating the impact of climatic variations on honey bee behavior and pesticide usage patterns. 
 
-Lastly, the US Pollution Data (2000-2023) (https://www.kaggle.com/datasets/guslovesmath/us-pollution-data-200-to-2022), sourced from the U.S. Environmental Protection Agency, serves as a comprehensive resource for assessing air quality and pollution levels, aiding in delineating the environmental stressors influencing honey bee health. Each dataset was selected after careful consideration of factors such as reliability, relevance to our research objectives, and accessibility, aiming to provide a robust foundation for our investigation into sustainable agricultural practices and biodiversity conservation efforts.
+In crafting our analytical framework, we have chosen four datasets to reveal the complex interplay between various factors influencing honey bee populations and agricultural ecosystems. Firstly, we draw upon the [Pesticide Usage Data](https://www.kaggle.com/datasets/konradb/pesticide-usage-in-the-united-states/data), acquired from the National Water-Quality Assessment Project, offering insights into pesticide application trends across different states. 
+
+Complementing this, the [Honey Bee Health Data](https://www.kaggle.com/datasets/m000sey/save-the-honey-bees/data), spanning from 2015 to 2022 and originally collected by the USDA, furnishes critical information on honey bee populations, facilitating a nuanced understanding of their health dynamics. Furthermore, [NOAA's Climate Data](https://www.kaggle.com/datasets/justinrwong/average-monthly-temperature-by-us-state), providing temperature insights by U.S. state, adds a crucial dimension to our analysis by elucidating the impact of climatic variations on honey bee behavior and pesticide usage patterns. 
+
+Lastly, the [US Pollution Data (2000-2023)](https://www.kaggle.com/datasets/guslovesmath/us-pollution-data-200-to-2022), sourced from the U.S. Environmental Protection Agency, serves as a comprehensive resource for assessing air quality and pollution levels, aiding in delineating the environmental stressors influencing honey bee health. Each dataset was selected after careful consideration of factors such as reliability, relevance to our research objectives, and accessibility, aiming to provide a robust foundation for our investigation into sustainable agricultural practices and biodiversity conservation efforts.
 
 # Methods
 
@@ -106,9 +108,23 @@ Regarding average temperature @fig-year_temp, it increased from 54.8°C to 56.1�
 In terms of pesticide usage in the USA @fig-year_pest, the amount increased from 5300 kg in 2015 to its peak usage, approximately 5890 kg in 2016. Subsequently, the usage decreased over time until 2018, reaching about 5310 kg. The usage then increased to approximately 5750 kg in 2019. Since 2016 had both the highest pesticide usage and the highest average percentage loss of bees for the USA, it suggests a potential association between pesticide usage and bee health.
 
 
-![ Average AQI of gas conditions in the USA from 2015 to 2019.](../images/year_aqi.png){#fig-year_aqi}
+![Average AQI of gas conditions in the USA from 2015 to 2019.](../images/year_aqi.png){#fig-year_aqi}
 
 In terms of Average AQI @fig-year_aqi, all four gases do not seem to change much between years in the USA. Since a higher AQI value indicates greater levels of air pollution and greater health concerns (Bishoi et al., 2009), O3 has the highest value of the Average AQI, posing the highest risk of contributing to bee health among these four gases, followed by NO2, CO, and SO2.
+
+
+![Percentage loss of bees due to disease and parasite infestations in four of the top 10 states with the highest percentage loss of bees from 2015 to 2019.](../images/loss_disease_parasite.png){#fig-loss_disease_parasite}
+
+In general, parasites appear to have the most significant impact on bee colonies compared to diseases, with at least 10% difference among the top 10 states with the highest percentage loss of bees from 2015 to 2019 (@fig-loss_disease_parasite, we only showed 4 states here due to limited space). Additionally, in most of the states, the percentage loss of bees due to parasites shows an increasing trend over the period between 2015 and 2019.
+
+![Changes in colony numbers in four of the top 10 states with the highest percentage loss of bees from 2015 to 2019.](../images/population_change.png){#fig-population_change}
+
+Among the 10 states, all of them show decreasing trends for the total number of colonies except for Massachusetts and North Dakota (@fig-population_change, we only showed 4 states here due to limited space). The number of added colonies and the number of lost colonies fluctuate but remain generally stable.
+
+![Average temperature change  in four of the top 10 states with the highest percentage loss of bees from 2015 to 2019.](../images/temp_change.png){#fig-temp_change}
+
+The average temperature fluctuates for all states by about 1-2°C between years, except for North Dakota and Kansas, which showed a steady decrease of 2°C per year for North Dakota and 1°C per year for Kansas from 2015 to 2019 (@fig-temp_change, we only showed 4 states here due to limited space).
+
 
 ## Results from regression models
 

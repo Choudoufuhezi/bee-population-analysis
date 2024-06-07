@@ -1,6 +1,8 @@
 from typing import NamedTuple, List
 import csv
 import pandas as pd
+import os
+import mysql.connector
 
 def init_tables(output_sql_file):
     """
@@ -344,3 +346,44 @@ def create_sql_Pesticide(input_csv_file, output_sql_file):
             return True
     except:
         return False
+    
+
+def connect_to_db(port_num, host_name):
+    """
+    connect to mysql
+    """
+    connection = mysql.connector.connect(
+        host = host_name,
+        user = 'system',
+        password = '123456',
+        database = 'bee_population_analysis_db',
+        port = port_num
+    )
+
+    return connection
+
+def load_sql_to_db(connection, sql_file_path):
+    """
+    load the sql file into the server
+    """
+    cursor = connection.cursor()
+
+    try:
+        if os.path.exists(os.path.dirname(sql_file_path)):
+            with open(sql_file_path, 'r') as f:
+                doc = f.read()
+
+            for i in doc.split(";"):
+                i = i.strip()
+                if i:
+                    cursor.execute(i)
+        
+            connection.commit()
+            return True
+        
+        else:
+            raise FileNotFoundError(f"file {sql_file_path} not found")
+    except Exception:
+        return False
+    
+
