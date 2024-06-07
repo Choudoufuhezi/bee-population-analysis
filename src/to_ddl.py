@@ -1,6 +1,4 @@
-from typing import NamedTuple, List
 import csv
-import pandas as pd
 import os
 import mysql.connector
 
