@@ -1,13 +1,7 @@
-import altair as alt
-import pandas as pd
 import click
 import re
-import sys
-import os
-alt.renderers.enable('mimetype')
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-from src.eda import * 
-from src.to_ddl import * 
+from pybeepop.to_ddl import connect_to_db
+from pybeepop.eda import *
 
 @click.command()
 @click.option('--year_lost_path', type = str, default = "images/year_lost.png")

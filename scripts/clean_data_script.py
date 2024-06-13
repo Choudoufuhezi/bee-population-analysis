@@ -1,11 +1,5 @@
-import pandas as pd
-import numpy as np
-import us
-import os
 import click
-import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from src.clean_data import *
+from pybeepop.clean_data import *
 
 @click.command()
 @click.option('--data1_path_origin',  type=str, default='data/original/average_monthly_temperature_by_state_1950-2022.parquet')

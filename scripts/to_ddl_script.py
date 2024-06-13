@@ -1,8 +1,5 @@
-import sys
-import os
 import click
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from src.to_ddl import *
+from pybeepop.to_ddl import *
 
 @click.command()
 @click.option('--sql_path', type = str, default = "scripts/output.sql")
