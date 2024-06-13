@@ -18,3 +18,6 @@ RUN conda install -y \
     statsmodels=0.14.1 \
     shap=0.45.0 \
     quarto=1.4.550
+
+RUN pip install \
+    pybeepop==0.1.3

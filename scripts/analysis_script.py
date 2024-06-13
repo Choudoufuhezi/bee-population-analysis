@@ -1,13 +1,6 @@
-import altair as alt
-import pandas as pd
 import click
-import re
-import sys
-import os
-alt.renderers.enable('mimetype')
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-from src.analysis import *
-from src.to_ddl import * 
+from pybeepop.to_ddl import connect_to_db
+from pybeepop.analysis import *
 
 @click.command()
 @click.option('--average_temperature_path', type = str, default = "images/average_temperature_linearity.png")
