@@ -1,4 +1,4 @@
-# cpsc368-project-group1
+# Bee Population Analysis
 **Project title**: Assessing the Influence of Pesticide Usage, Parasitic Factors, and Climate on Honey Bee Populations in the United States (2015-2019)
 
 Contributors:
@@ -21,11 +21,11 @@ The project is currently being managed using [Docker](https://www.docker.com/), 
    
 2. Please clone the repository by copying and pasting the following command into your terminal:
    
-   `git clone https://github.com/Choudoufuhezi/cpsc368-project-group1.git`
+   `git clone https://github.com/Choudoufuhezi/bee_population_analysis.git`
   
 3. Switch to the project directory by entering the following command into your terminal :
 
-   `cd cpsc368-project-group1`
+   `cd bee_population_analysis`
 
 4. Before conducting the analysis, ensure the file is cleaned and prepared appropriately  :
 
@@ -37,7 +37,7 @@ The project is currently being managed using [Docker](https://www.docker.com/), 
 
 ## Licenses
 
-`cpsc368-project-group1` was created by Hanxi Chen, Tianyu Duan, Hanlin Zhao. It is licensed under the terms of the MIT license.
+`bee_population_analysis` was created by Hanxi Chen, Tianyu Duan, Hanlin Zhao. It is licensed under the terms of the MIT license.
 
 ## Dataset 
 
