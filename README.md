@@ -13,7 +13,7 @@ Analyzing the Impact of Pesticide Usage, Parasitic Factors, and Climate on Honey
 
 ## Dependencies
 
-The project is currently being managed using [Docker](https://www.docker.com/), a virtual container platform. It involves two images: `bee_population_analysis`, built on the base image of `jupyter/scipy-notebook`, and the `mysql` Docker image.
+The project is currently being managed using [Docker](https://www.docker.com/), a virtual container platform. It involves two images: `bee-population-analysis`, built on the base image of `jupyter/scipy-notebook`, and the `mysql` Docker image.
 
 ## Instructions
 
@@ -37,7 +37,7 @@ The project is currently being managed using [Docker](https://www.docker.com/), 
 
 ## Licenses
 
-`bee_population_analysis` was created by Hanxi Chen, Tianyu Duan, Hanlin Zhao. It is licensed under the terms of the MIT license.
+`bee-population-analysis` was created by Hanxi Chen, Tianyu Duan, Hanlin Zhao. It is licensed under the terms of the MIT license.
 
 ## Dataset 
 
