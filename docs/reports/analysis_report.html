@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -143,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 <h1>Introduction</h1>
 <section id="project-summary" class="level2">
 <h2 class="anchored" data-anchor-id="project-summary">Project Summary</h2>
-<p>Flowering plants play vital roles in natural and agricultural ecosystems, providing food, fiber, and shelter for wildlife and humans (Calderone, 2012). Pollination, a crucial step in their reproductive process, is typically necessary for seed production and is primarily carried out by animals, particularly bees (Calderone, 2012). With approximately 17,000 described species worldwide, bees are the most common pollinators (Calderone, 2012). However, the decline in honey bee colonies and other pollinators raises concerns about the impact on ecosystems (Calderone, 2012). Therefore, understanding this relationship is crucial for promoting sustainable agricultural practices and preserving biodiversity. Our project delves into the intricate associations between fluctuating levels of pesticide usage, diverse climate conditions, and the overall health (reflected by percentage loss) of honey bee populations in the USA.</p>
+<p>Flowering plants play vital roles in natural and agricultural ecosystems, providing food, fiber, and shelter for wildlife and humans <span class="citation" data-cites="calderone2012">Calderone (<a href="#ref-calderone2012" role="doc-biblioref">2012</a>)</span>. Pollination, a crucial step in their reproductive process, is typically necessary for seed production and is primarily carried out by animals, particularly bees <span class="citation" data-cites="calderone2012">Calderone (<a href="#ref-calderone2012" role="doc-biblioref">2012</a>)</span>. With approximately 17,000 described species worldwide, bees are the most common pollinators <span class="citation" data-cites="calderone2012">Calderone (<a href="#ref-calderone2012" role="doc-biblioref">2012</a>)</span>. However, the decline in honey bee colonies and other pollinators raises concerns about the impact on ecosystems <span class="citation" data-cites="calderone2012">Calderone (<a href="#ref-calderone2012" role="doc-biblioref">2012</a>)</span>. Therefore, understanding this relationship is crucial for promoting sustainable agricultural practices and preserving biodiversity. Our project delves into the intricate associations between fluctuating levels of pesticide usage, diverse climate conditions, and the overall health (reflected by percentage loss) of honey bee populations in the USA.</p>
 <p>Through rigorous investigation, we aim to uncover the complex interplay between these factors, shedding light on their combined effects on honey bee colonies across the United States. Our ultimate goal is to gain insights to enhance sustainable agricultural practices and preserve biodiversity.</p>
 <p>In the planned data analysis, the primary focus is on investigating the interrelationships among pesticide usage, honey bee health metrics, and climate variables in the dataset spanning from 2015 to 2019. The analysis will involve correlation studies to uncover potential associations between these factors, utilizing statistical models to quantify the strength and direction of relationships after checking necessary assumptions. This approach is considered optimal for understanding the intricate connections between the variables and identifying patterns or trends that may influence honey bee colonies over time.</p>
 <p>We will first create line graphs to visualize the overall trends in temperature change, pesticide usage, average air quality index (AQI) conditions, and the percentage loss of bees from 2015 to 2019 in the USA. Then, for the top 10 states that experienced the highest percentage loss of the bee population, we will plot these variables for each state to further examine if there are any specific trends on an individual state level and to identify potential associations on a smaller scale. Moreover, we will attempt to identify the variable that has the most significant association with the percentage loss of bee colonies. Initially, we will check for linearity and then assess multicollinearity using VIF scores. Finally, we will fit them into a linear regression model and use the R-squared value to evaluate the model. If the R-squared value is low, indicating a potential non-linear relationship, we will explore fitting a non-linear model to further examine the relationships.</p>
@@ -410,7 +430,7 @@ Table&nbsp;2: Results of linear regression.
 =========================================================================
 Model:                 OLS                Adj. R-squared:       0.110    
 Dependent Variable:    PercentLost        AIC:                  1058.9125
-Date:                  2024-06-13 04:44   BIC:                  1087.3956
+Date:                  2024-06-24 08:19   BIC:                  1087.3956
 No. Observations:      175                Log-Likelihood:       -520.46  
 Df Model:              8                  F-statistic:          3.679    
 Df Residuals:          166                Prob (F-statistic):   0.000561 
@@ -474,7 +494,7 @@ Figure&nbsp;11: Feature Importance Plot for the XGBoost model.
 </section>
 <section id="future-directions" class="level1">
 <h1>Future Directions</h1>
-<p>Moving forward, several avenues for future research present themselves. A more granular analysis of factors such as temperature and pesticide usage using monthly data would yield insights into their fluctuations and impacts on bee colonies, aligning with previous research documenting seasonal colony loss rates (Kulhanek et al., 2017). Investigating seasonal variations in colony numbers across states can elucidate the interplay between environmental factors and bee biology, guiding targeted management strategies. Long-term monitoring of parasite trends in wintering states is essential to identify recurring patterns and develop proactive measures to mitigate their impact on bee health. Further exploration of state-specific factors contributing to disparities in colony numbers, such as bee species composition and habitat characteristics, promises to deepen our understanding of regional variations in beekeeping practices and pesticide usage. Methodological refinement, including the development of more sophisticated techniques to adjust for geographical differences in colony numbers and pesticide usage, will enhance the accuracy and reliability of data analysis, facilitating more robust conclusions and informed decision-making (Kulhanek et al., 2017).</p>
+<p>Moving forward, several avenues for future research present themselves. A more granular analysis of factors such as temperature and pesticide usage using monthly data would yield insights into their fluctuations and impacts on bee colonies, aligning with previous research documenting seasonal colony loss rates <span class="citation" data-cites="kulhanek2017">Kulhanek et al. (<a href="#ref-kulhanek2017" role="doc-biblioref">2017</a>)</span>. Investigating seasonal variations in colony numbers across states can elucidate the interplay between environmental factors and bee biology, guiding targeted management strategies. Long-term monitoring of parasite trends in wintering states is essential to identify recurring patterns and develop proactive measures to mitigate their impact on bee health. Further exploration of state-specific factors contributing to disparities in colony numbers, such as bee species composition and habitat characteristics, promises to deepen our understanding of regional variations in beekeeping practices and pesticide usage. Methodological refinement, including the development of more sophisticated techniques to adjust for geographical differences in colony numbers and pesticide usage, will enhance the accuracy and reliability of data analysis, facilitating more robust conclusions and informed decision-making <span class="citation" data-cites="kulhanek2017">Kulhanek et al. (<a href="#ref-kulhanek2017" role="doc-biblioref">2017</a>)</span>.</p>
 </section>
 <section id="data-concerns-and-relational-vs.-non-relational" class="level1">
 <h1>Data Concerns and Relational vs.&nbsp;Non-Relational</h1>
@@ -498,10 +518,18 @@ Figure&nbsp;11: Feature Importance Plot for the XGBoost model.
 <p>In summary, the choice between using a relational or non-relational database depends on the nature of the data and the specific requirements of our project. Relational databases offer structured data management and predefined relationships, making them suitable for managing interconnected data on honey bee populations and ecosystem dynamics. Non-relational databases, on the other hand, provide flexibility and scalability for handling diverse data types, making them advantageous for managing unstructured or semi-structured data sources. In our case, since we are more interested in the relationships between different factors contributing to the loss of bees in the USA than in textual data from social media, etc., we believe a relational database will be more suitable. Additionally, the types of data we will be collecting are easy to handle in relational databases.</p>
 
 
+
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-calderone2012" class="csl-entry" role="listitem">
+Calderone, Nicholas W. 2012. <span>“Insect Pollinated Crops, Insect Pollinators and US Agriculture: Trend Analysis of Aggregate Data for the Period 1992–2009.”</span> <em>PLOS ONE</em> 7 (5): 1–27. <a href="https://doi.org/10.1371/journal.pone.0037235">https://doi.org/10.1371/journal.pone.0037235</a>.
+</div>
+<div id="ref-kulhanek2017" class="csl-entry" role="listitem">
+Kulhanek, Kelly, Nathalie Steinhauer, Karen Rennich, Dewey Caron, Ramesh Sagili, Jeff Pettis, James Ellis, et al. 2017. <span>“A National Survey of Managed Honey Bee 2015–2016 Annual Colony Losses in the USA.”</span> <em>Journal of Apicultural Research</em> 56 (July): 1–13. <a href="https://doi.org/10.1080/00218839.2017.1344496">https://doi.org/10.1080/00218839.2017.1344496</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

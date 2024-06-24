@@ -7,6 +7,7 @@ format:
         toc-depth: 2
 execute: 
     echo: false
+bibliography: references.bib
 ---
 
 ```{python}
@@ -18,8 +19,8 @@ import pickle
 
 ## Project Summary
 
-Flowering plants play vital roles in natural and agricultural ecosystems, providing food, fiber, and shelter for wildlife and humans (Calderone, 2012). Pollination, a crucial
-step in their reproductive process, is typically necessary for seed production and is primarily carried out by animals, particularly bees (Calderone, 2012). With approximately 17,000 described species worldwide, bees are the most common pollinators (Calderone, 2012). However, the decline in honey bee colonies and other pollinators raises concerns about the impact on ecosystems (Calderone, 2012). Therefore, understanding this relationship is crucial for promoting sustainable agricultural practices and preserving biodiversity. Our project delves into the intricate associations between fluctuating levels of pesticide usage, diverse climate conditions, and the overall health (reflected by percentage loss) of honey bee populations in the USA.
+Flowering plants play vital roles in natural and agricultural ecosystems, providing food, fiber, and shelter for wildlife and humans @calderone2012. Pollination, a crucial
+step in their reproductive process, is typically necessary for seed production and is primarily carried out by animals, particularly bees @calderone2012. With approximately 17,000 described species worldwide, bees are the most common pollinators @calderone2012. However, the decline in honey bee colonies and other pollinators raises concerns about the impact on ecosystems @calderone2012. Therefore, understanding this relationship is crucial for promoting sustainable agricultural practices and preserving biodiversity. Our project delves into the intricate associations between fluctuating levels of pesticide usage, diverse climate conditions, and the overall health (reflected by percentage loss) of honey bee populations in the USA.
 
 Through rigorous investigation, we aim to uncover the complex interplay between these factors, shedding light on their combined effects on honey bee colonies across the United States. Our ultimate goal is to gain insights to enhance sustainable agricultural practices and preserve biodiversity.
 
@@ -153,7 +154,7 @@ In examining our findings, several limitations emerge that warrant consideration
 
 # Future Directions
 
-Moving forward, several avenues for future research present themselves. A more granular analysis of factors such as temperature and pesticide usage using monthly data would yield insights into their fluctuations and impacts on bee colonies, aligning with previous research documenting seasonal colony loss rates (Kulhanek et al., 2017). Investigating seasonal variations in colony numbers across states can elucidate the interplay between environmental factors and bee biology, guiding targeted management strategies. Long-term monitoring of parasite trends in wintering states is essential to identify recurring patterns and develop proactive measures to mitigate their impact on bee health. Further exploration of state-specific factors contributing to disparities in colony numbers, such as bee species composition and habitat characteristics, promises to deepen our understanding of regional variations in beekeeping practices and pesticide usage. Methodological refinement, including the development of more sophisticated techniques to adjust for geographical differences in colony numbers and pesticide usage, will enhance the accuracy and reliability of data analysis, facilitating more robust conclusions and informed decision-making (Kulhanek et al., 2017).
+Moving forward, several avenues for future research present themselves. A more granular analysis of factors such as temperature and pesticide usage using monthly data would yield insights into their fluctuations and impacts on bee colonies, aligning with previous research documenting seasonal colony loss rates @kulhanek2017. Investigating seasonal variations in colony numbers across states can elucidate the interplay between environmental factors and bee biology, guiding targeted management strategies. Long-term monitoring of parasite trends in wintering states is essential to identify recurring patterns and develop proactive measures to mitigate their impact on bee health. Further exploration of state-specific factors contributing to disparities in colony numbers, such as bee species composition and habitat characteristics, promises to deepen our understanding of regional variations in beekeeping practices and pesticide usage. Methodological refinement, including the development of more sophisticated techniques to adjust for geographical differences in colony numbers and pesticide usage, will enhance the accuracy and reliability of data analysis, facilitating more robust conclusions and informed decision-making @kulhanek2017.
 
 
 # Data Concerns and Relational vs. Non-Relational
